@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import LoginForm from 'src/components/LoginForm';
 
-import { updateLoginField } from '../../actions/auth';
+import { updateLoginField, logIn } from '../../actions/auth';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
     // console.log(`newValue=${newValue}, name=${name}`);
     const action = updateLoginField(newValue, name);
     dispatch(action);
+  },
+  handleLogin: () => {
+    dispatch(logIn());
   },
 });
 
