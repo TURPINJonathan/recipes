@@ -1,7 +1,5 @@
-import recipes from 'src/data';
-
 const initialState = {
-  recipesList: recipes,
+  recipesList: [],
 };
 
 function recipesReducer(state = initialState, action = {}) {
