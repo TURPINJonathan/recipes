@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { LOG_IN, saveUserData } from '../actions/auth';
-import { FETCH_FAVORITES, fetchFavorites } from '../actions/recipes';
+import { FETCH_FAVORITES, fetchFavorites, saveFavorites } from '../actions/recipes';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware auth: ', action);
@@ -52,7 +52,8 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
+          store.dispatch(saveFavorites(response.data.favorites));
         })
         .catch((error) => {
           console.log(error);

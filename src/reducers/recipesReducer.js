@@ -1,7 +1,8 @@
-import { SAVE_RECIPES } from 'src/actions/recipes';
+import { SAVE_RECIPES, SAVE_RECIPES } from 'src/actions/recipes';
 
 const initialState = {
   recipesList: [],
+  favorites: [],
 };
 
 function recipesReducer(state = initialState, action = {}) {
@@ -10,6 +11,12 @@ function recipesReducer(state = initialState, action = {}) {
       return {
         ...state,
         recipesList: action.recipes,
+      };
+
+    case SAVE_FAVORITES:
+      return {
+        ...state,
+        favorites: action.favorites,
       };
 
     default:

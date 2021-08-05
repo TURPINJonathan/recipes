@@ -2,6 +2,7 @@
 export const FETCH_RECIPES = 'FETCH_RECIPES';
 export const SAVE_RECIPES = 'SAVE_RECIPES';
 export const FETCH_FAVORITES = 'FETCH_FAVORITES';
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
 
 // action creators
 export const fetchRecipes = () => ({
@@ -15,4 +16,9 @@ export const saveRecipes = (recipes) => ({
 
 export const fetchFavorites = () => ({
   type: FETCH_FAVORITES,
+});
+
+export const saveFavorites = (favorites) => ({
+  type: SAVE_FAVORITES,
+  favorites: favorites,
 });
