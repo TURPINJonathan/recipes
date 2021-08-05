@@ -13,7 +13,7 @@ import Instructions from './Instructions';
 import './styles.css';
 
 // == Composant
-function Recipe({ recipe }) {
+function Recipe({ recipes }) {
   const { id } = useParams(); // => string
 
   const recipe = recipes.find((item) => item.id === parseInt(id,10)); // convert string
