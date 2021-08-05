@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 // == Import : local
 // Composants
@@ -13,6 +14,9 @@ import './styles.css';
 
 // == Composant
 function Recipe({ recipe }) {
+  const { id } = useParams(); // => string
+
+  const recipe = recipes.find((item) => item.id === parseInt(id,10)); // convert string
   return (
     <div className="recipe">
       <Header
@@ -32,14 +36,16 @@ function Recipe({ recipe }) {
 }
 
 Recipe.propTypes = {
-  recipe: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    difficulty: PropTypes.string.isRequired,
-    ingredients: PropTypes.array.isRequired,
-    instructions: PropTypes.array.isRequired,
-  }).isRequired,
+  recipes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      thumbnail: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      difficulty: PropTypes.string.isRequired,
+      ingredients: PropTypes.array.isRequired,
+      instructions: PropTypes.array.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 // == Export

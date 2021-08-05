@@ -19,9 +19,9 @@ const Page = () => (
         <Home recipes={recipes} />
       </Route>
       <Route
-        path="/recipe/"
+        path="/recipe/:id"
       >
-        <Recipe recipe={recipes[0]} />
+        <Recipe recipes={recipes} />
       </Route>
     </div>
   </main>
