@@ -21,3 +21,13 @@ yarn start --open
 ## Use server
 
 You can use this specific [server](https://github.com/TURPINJonathan/recipe-server).
+
+## Display on navigator
+
+You can try to connect with those logins :
+
+| USERNAME | EMAIL                              | PASSWORD |
+| :------- | :--------------------------------: | -------: |
+| John     | bouclierman@herocorp.io            | jennifer |
+| Burt     | acidman@herocorp.io                | fructis  |
+| Karin    | captain.sportsextremes@herocorp.io | pingpong |
