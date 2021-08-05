@@ -8,6 +8,7 @@ import { updateLoginField, logIn } from '../../actions/auth';
 const mapStateToProps = (state) => ({
   email: state.auth.email,
   password: state.auth.password,
+  isLogged: state.auth.logged,
 });
 
 // === mapDispatchToProps
