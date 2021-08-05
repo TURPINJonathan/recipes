@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Recipe from 'src/components/Recipe';
-import Home from 'src/components/Home';
+import Recipe from 'src/containers/Recipe';
+import Home from 'src/containers/Home';
 
 import recipes from 'src/data';
 
@@ -16,12 +16,12 @@ const Page = () => (
         path="/"
         exact
       >
-        <Home recipes={recipes} />
+        <Home />
       </Route>
       <Route
         path="/recipe/:slug"
       >
-        <Recipe recipes={recipes} />
+        <Recipe />
       </Route>
     </div>
   </main>
