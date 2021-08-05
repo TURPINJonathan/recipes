@@ -4,7 +4,7 @@ import { slugifyTitle, getRecipeBySlug } from 'src/utils';
 
 import { should } from 'chai';
 
-import recipesData from './recipes';
+import recipesData from '../data/recipes';
 
 should();
 
