@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LOG_IN, saveUserData } from '../actions/auth';
+import { FETCH_FAVORITES, fetchFavorites } from '../actions/recipes';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware auth: ', action);
@@ -24,12 +25,39 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.logged,
           );
           store.dispatch(newAction);
+
+          store.dispatch(fetchFavorites());
         })
         .catch((error) => {
           console.log(error);
         });
       break;
     }
+
+    case FETCH_FAVORITES:
+      // console.log('on va aller chercher les recettes préférées');
+
+      // on envoie le token : dans le header Authorization, en précisant le mot
+      // "Bearer" avant le token
+      axios.post(
+        // URL
+        'http://localhost:3001/favorites',
+        // données
+        {},
+        // options, notamment les headers
+        {
+          headers: {
+            Authorization: `Bearer ${store.getState().auth.token}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
 
     default:
   }
