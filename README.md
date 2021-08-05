@@ -17,3 +17,7 @@ Next, you can launch this project with :
 ```sh
 yarn start --open
 ```
+
+## Use server
+
+You can use this specific [server](https://github.com/TURPINJonathan/recipe-server).
