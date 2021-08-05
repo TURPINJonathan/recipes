@@ -16,7 +16,7 @@ const Page = () => (
         path="/"
         exact
       >
-        <Home />
+        <Home recipes={recipes} />
       </Route>
       <Route
         path="/recipe/"

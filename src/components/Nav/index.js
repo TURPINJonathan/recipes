@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { NavLink } from 'react-router-dom';
 
 import './nav.scss';
 
-const Nav = () => (
+const Nav = ({ recipes }) => (
   <nav className="nav">
     <NavLink
       to="/"
@@ -13,23 +15,26 @@ const Nav = () => (
     >
       Accueil
     </NavLink>
-    <NavLink
-      to="/recipe/recette1"
-      className="nav-item"
-      activeClassName="nav-item--active"
-      exact
-    >
-      Recette 1
-    </NavLink>
-    <NavLink
-      to="/recipe/recette2"
-      className="nav-item"
-      activeClassName="nav-item--active"
-      exact
-    >
-      Recette 2
-    </NavLink>
+    {recipes.map((recipe) => (
+      <NavLink
+        to={`/recipe/${recipe.id}`}
+        className="nav-item"
+        activeClassName="nav-item--active"
+        key={recipe.id}
+      >
+        {recipe.title}
+      </NavLink>
+    ))}
   </nav>
 );
+
+Nav.propTypes = {
+  recipes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Nav;
