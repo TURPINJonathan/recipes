@@ -1,4 +1,4 @@
-import { SAVE_RECIPES, SAVE_RECIPES } from 'src/actions/recipes';
+import { SAVE_RECIPES, SAVE_FAVORITES } from 'src/actions/recipes';
 
 const initialState = {
   recipesList: [],
