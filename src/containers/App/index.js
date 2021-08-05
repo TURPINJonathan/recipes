@@ -6,6 +6,7 @@ import { fetchRecipes } from '../../actions/recipes';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
+  recipesLoaded: state.recipes.recipesLoaded,
 });
 
 // === mapDispatchToProps

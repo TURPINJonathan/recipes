@@ -3,6 +3,7 @@ import { SAVE_RECIPES, SAVE_RECIPES } from 'src/actions/recipes';
 const initialState = {
   recipesList: [],
   favorites: [],
+  recipesLoaded: false,
 };
 
 function recipesReducer(state = initialState, action = {}) {
@@ -11,6 +12,7 @@ function recipesReducer(state = initialState, action = {}) {
       return {
         ...state,
         recipesList: action.recipes,
+        recipesLoaded: true,
       };
 
     case SAVE_FAVORITES:
