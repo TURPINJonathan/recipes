@@ -1,13 +1,11 @@
 import React from 'react';
 
-import LoginForm from 'src/components/LoginForm';
+import LoginForm from 'src/containers/LoginForm';
 
 const Header = () => (
   <div className="header">
     <h2 className="page-title">oRecipes</h2>
     <LoginForm
-      email=""
-      password=""
       changeField={(newValue, name) => {
         console.log(`newValue=${newValue}, name=${name}`);
       }}
