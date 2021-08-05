@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { NavLink } from 'react-router-dom';
 
+import { slugifyTitle } from 'src/utils';
+
 import './nav.scss';
 
 const Nav = ({ recipes }) => (
@@ -17,7 +19,7 @@ const Nav = ({ recipes }) => (
     </NavLink>
     {recipes.map((recipe) => (
       <NavLink
-        to={`/recipe/${recipe.id}`}
+        to={`/recipe/${slugifyTitle(recipe.title)}`}
         className="nav-item"
         activeClassName="nav-item--active"
         key={recipe.id}

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 // == Import : local
 // Composants
+import { getRecipeBySlug } from 'src/utils';
 import Header from './Header';
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
@@ -14,9 +15,10 @@ import './styles.css';
 
 // == Composant
 function Recipe({ recipes }) {
-  const { id } = useParams(); // => string
+  const { slug } = useParams(); // => string
 
-  const recipe = recipes.find((item) => item.id === parseInt(id,10)); // convert string
+  const recipe = getRecipeBySlug(slug, recipes);
+
   return (
     <div className="recipe">
       <Header

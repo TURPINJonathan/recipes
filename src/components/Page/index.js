@@ -19,7 +19,7 @@ const Page = () => (
         <Home recipes={recipes} />
       </Route>
       <Route
-        path="/recipe/:id"
+        path="/recipe/:slug"
       >
         <Recipe recipes={recipes} />
       </Route>

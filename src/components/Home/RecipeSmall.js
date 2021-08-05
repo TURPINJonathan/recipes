@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import { slugifyTitle } from 'src/utils';
+
 const RecipeSmall = ({
   title,
   thumbnail,
   difficulty,
-  id,
 }) => (
   <article className="recipe-small">
     <img
@@ -18,7 +19,7 @@ const RecipeSmall = ({
       <p>Difficulté : {difficulty}</p>
       <Link
         className="recipe-small-link"
-        to={`/recipe/${id}`}
+        to={`/recipe/${slugifyTitle(title)}`}
       >
         Voir la recette
       </Link>
@@ -30,7 +31,6 @@ RecipeSmall.propTypes = {
   title: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   difficulty: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
 };
 
 export default RecipeSmall;
