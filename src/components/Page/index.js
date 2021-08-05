@@ -4,8 +4,6 @@ import { Route } from 'react-router-dom';
 import Recipe from 'src/containers/Recipe';
 import Home from 'src/containers/Home';
 
-import recipes from 'src/data';
-
 import './page.scss';
 
 const Page = () => (
