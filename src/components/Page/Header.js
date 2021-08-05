@@ -17,8 +17,6 @@ const Header = () => (
       handleLogout={() => {
         console.log('handleLogout');
       }}
-      isLogged={true}
-      loggedMessage="Coucou"
     />
   </div>
 );
