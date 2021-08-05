@@ -1,10 +1,13 @@
 // test file for src/utils/index.js
 
-import { slugifyTitle } from 'src/utils';
+import { slugifyTitle, getRecipeBySlug } from 'src/utils';
 
 import { should } from 'chai';
 
+import recipesData from './recipes';
+
 should();
+
 describe('utils', () => {
   describe('slugifyTitle', () => {
     it('is a function', () => {
@@ -21,5 +24,14 @@ describe('utils', () => {
   });
 
   describe('getRecipeBySlug', () => {
+    it('is a function', () => {
+      getRecipeBySlug.should.be.a('function');
+    });
+
+    it('get the recipe with the given slug', () => {
+      const slug = slugifyTitle(recipesData[0].title);
+      const expectedResult = recipesData[0];
+      getRecipeBySlug(slug, recipesData).should.equal(expectedResult);
+    });
   });
 });
