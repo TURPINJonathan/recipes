@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES } from '../actions/recipes';
+import { FETCH_RECIPES, saveRecipes } from '../actions/recipes';
 
 const recipesMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -9,7 +9,8 @@ const recipesMiddleware = (store) => (next) => (action) => {
       // console.log('on va envoyer une requête pour récupérer les recettes');
       axios.get('http://localhost:3001/recipes')
         .then((response) => {
-          console.log(response);
+          const newAction = saveRecipes(response.data);
+          store.dispatch(newAction);
         })
         .catch((error) => {
           console.log(error);
