@@ -1,4 +1,6 @@
 const initialState = {
+  email: '',
+  password: '',
 };
 
 function authReducer(state = initialState, action = {}) {
